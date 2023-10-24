@@ -82216,26 +82216,21 @@ __nccwpck_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 __nccwpck_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(7020);
 /* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nccwpck_require__.n(_actions_core__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _actions_exec__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(7612);
-/* harmony import */ var _actions_exec__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nccwpck_require__.n(_actions_exec__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _actions_cache__WEBPACK_IMPORTED_MODULE_2__ = __nccwpck_require__(7036);
-/* harmony import */ var _actions_cache__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__nccwpck_require__.n(_actions_cache__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var node_process__WEBPACK_IMPORTED_MODULE_3__ = __nccwpck_require__(7742);
-/* harmony import */ var node_process__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__nccwpck_require__.n(node_process__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _actions_glob__WEBPACK_IMPORTED_MODULE_4__ = __nccwpck_require__(2132);
-/* harmony import */ var _actions_glob__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__nccwpck_require__.n(_actions_glob__WEBPACK_IMPORTED_MODULE_4__);
-
-
+/* harmony import */ var _actions_cache__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(7036);
+/* harmony import */ var _actions_cache__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nccwpck_require__.n(_actions_cache__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _actions_glob__WEBPACK_IMPORTED_MODULE_2__ = __nccwpck_require__(2132);
+/* harmony import */ var _actions_glob__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__nccwpck_require__.n(_actions_glob__WEBPACK_IMPORTED_MODULE_2__);
 
 
 
 
 try {
     const cachePaths = JSON.parse(_actions_core__WEBPACK_IMPORTED_MODULE_0__.getState('cachePaths'));
-    const hash = await _actions_glob__WEBPACK_IMPORTED_MODULE_4__.hashFiles(cachePaths.join('\n'));
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.debug(JSON.stringify(cachePaths));
+    const hash = await _actions_glob__WEBPACK_IMPORTED_MODULE_2__.hashFiles(cachePaths.join('\n'));
     const keyPrefix = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getState('keyPrefix');
     const key = `${keyPrefix}${hash}`;
-    await _actions_cache__WEBPACK_IMPORTED_MODULE_2__.saveCache(cachePaths, key);
+    await _actions_cache__WEBPACK_IMPORTED_MODULE_1__.saveCache(cachePaths, key);
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`Cache saved with the key: ${key}`);
 } catch (error) {
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(error.message);
@@ -82362,14 +82357,6 @@ module.exports = require("net");
 
 "use strict";
 module.exports = require("node:events");
-
-/***/ }),
-
-/***/ 7742:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("node:process");
 
 /***/ }),
 
