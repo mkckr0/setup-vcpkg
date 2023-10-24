@@ -3,8 +3,8 @@ import * as cache from '@actions/cache';
 import * as glob from '@actions/glob';
 
 try {
-    // const cachePaths = JSON.parse(core.getState('cachePaths'));
-    // core.info(JSON.stringify(cachePaths));
+    const cachePaths = JSON.parse(core.getState('cachePaths'));
+    core.info(JSON.stringify(cachePaths));
     // const hash = await glob.hashFiles(cachePaths.join('\n'));
     // const keyPrefix = core.getState('keyPrefix');
     // const key = `${keyPrefix}${hash}`;
