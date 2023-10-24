@@ -9,7 +9,7 @@ async function run() {
         const hash = await glob.hashFiles(cachePaths.join('\n'));
         const keyPrefix = core.getState('keyPrefix');
         const primaryKey = `${keyPrefix}${hash}`;
-        if (primaryKey === core.getState('primaryKey')) {
+        if (primaryKey === core.getState('matchedKey')) {
             core.info(`Cache is unchanged with primary key: ${primaryKey}`);
         } else {
             await cache.saveCache(cachePaths, key);

@@ -81390,13 +81390,13 @@ async function run() {
         core.saveState('cachePaths', cachePaths);
         const keyPrefix = `setup-vcpkg-${external_node_process_namespaceObject.env.RUNNER_OS}-`;
         core.saveState('keyPrefix', keyPrefix);
-        const primaryKey = await cache.restoreCache(cachePaths, keyPrefix);
-        if (primaryKey === undefined) {
+        const matchedKey = await cache.restoreCache(cachePaths, keyPrefix);
+        if (matchedKey === undefined) {
             core.info(`Cache not found for input keys: ${keyPrefix}`);
         } else {
-            core.info(`Cache restored from key: ${primaryKey}`);
+            core.info(`Cache restored from key: ${matchedKey}`);
         }
-        core.saveState('primaryKey', primaryKey);
+        core.saveState('matchedKey', matchedKey);
     } catch (error) {
         core.setFailed(error.stack);
     }

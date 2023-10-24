@@ -82580,7 +82580,7 @@ async function run() {
         const hash = await _actions_glob__WEBPACK_IMPORTED_MODULE_2__.hashFiles(cachePaths.join('\n'));
         const keyPrefix = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getState('keyPrefix');
         const primaryKey = `${keyPrefix}${hash}`;
-        if (primaryKey === _actions_core__WEBPACK_IMPORTED_MODULE_0__.getState('primaryKey')) {
+        if (primaryKey === _actions_core__WEBPACK_IMPORTED_MODULE_0__.getState('matchedKey')) {
             _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`Cache is unchanged with primary key: ${primaryKey}`);
         } else {
             await _actions_cache__WEBPACK_IMPORTED_MODULE_1__.saveCache(cachePaths, key);
