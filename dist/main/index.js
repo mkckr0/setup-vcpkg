@@ -20,7 +20,7 @@ __nccwpck_require__.r(__webpack_exports__);
 
 
 
-try {
+// try {
     // VCPKG_ROOT
     const vcpkgRoot = (node_process__WEBPACK_IMPORTED_MODULE_3___default().env.VCPKG_INSTALLATION_ROOT);
     _actions_core__WEBPACK_IMPORTED_MODULE_0___default().exportVariable('VCPKG_ROOT', vcpkgRoot);
@@ -47,9 +47,9 @@ try {
     _actions_core__WEBPACK_IMPORTED_MODULE_0___default().saveState('cachePaths', cachePaths);
     _actions_core__WEBPACK_IMPORTED_MODULE_0___default().saveState('keyPrefix', keyPrefix);
 
-} catch (error) {
-    _actions_core__WEBPACK_IMPORTED_MODULE_0___default().setFailed(error.message);
-}
+// } catch (error) {
+//     core.setFailed(error.message);
+// }
 
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } }, 1);
