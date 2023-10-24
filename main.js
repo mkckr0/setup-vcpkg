@@ -23,10 +23,7 @@ try {
         vcpkgDefaultBinaryCache,
     ];
     const keyPrefix = `setup-vcpkg-${process.env.RUNNER_OS}-`;
-    const restoryKeys = [
-        keyPrefix,
-    ];
-    await cache.restoreCache(cachePaths, undefined, restoryKeys);
+    await cache.restoreCache(cachePaths, keyPrefix);
     core.saveState('cachePaths', cachePaths);
     core.saveState('keyPrefix', keyPrefix);
 

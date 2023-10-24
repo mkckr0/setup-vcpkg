@@ -40,10 +40,7 @@ try {
         vcpkgDefaultBinaryCache,
     ];
     const keyPrefix = `setup-vcpkg-${node_process__WEBPACK_IMPORTED_MODULE_3__.env.RUNNER_OS}-`;
-    const restoryKeys = [
-        keyPrefix,
-    ];
-    await _actions_cache__WEBPACK_IMPORTED_MODULE_2__.restoreCache(cachePaths, undefined, restoryKeys);
+    await _actions_cache__WEBPACK_IMPORTED_MODULE_2__.restoreCache(cachePaths, keyPrefix);
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.saveState('cachePaths', cachePaths);
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.saveState('keyPrefix', keyPrefix);
 
