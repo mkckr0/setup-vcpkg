@@ -20,36 +20,36 @@ __nccwpck_require__.r(__webpack_exports__);
 
 
 
-// try {
+try {
     // VCPKG_ROOT
-    const vcpkgRoot = (node_process__WEBPACK_IMPORTED_MODULE_3___default().env.VCPKG_INSTALLATION_ROOT);
-    _actions_core__WEBPACK_IMPORTED_MODULE_0___default().exportVariable('VCPKG_ROOT', vcpkgRoot);
+    const vcpkgRoot = node_process__WEBPACK_IMPORTED_MODULE_3__.env.VCPKG_INSTALLATION_ROOT;
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.exportVariable('VCPKG_ROOT', vcpkgRoot);
 
     // VCPKG_DEFAULT_TRIPLET
-    const vcpkgDefaultTriplet = _actions_core__WEBPACK_IMPORTED_MODULE_0___default().getInput('VCPKG_DEFAULT_TRIPLET');
-    _actions_core__WEBPACK_IMPORTED_MODULE_0___default().exportVariable('VCPKG_DEFAULT_TRIPLET', vcpkgDefaultTriplet);
+    const vcpkgDefaultTriplet = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('VCPKG_DEFAULT_TRIPLET');
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.exportVariable('VCPKG_DEFAULT_TRIPLET', vcpkgDefaultTriplet);
 
     // VCPKG_DEFAULT_BINARY_CACHE
-    const vcpkgDefaultBinaryCache = `${(node_process__WEBPACK_IMPORTED_MODULE_3___default().env.RUNNER_TEMP)}/vcpkg_binary_cache`;
-    _actions_core__WEBPACK_IMPORTED_MODULE_0___default().exportVariable('VCPKG_DEFAULT_BINARY_CACHE', vcpkgDefaultBinaryCache);
-    await _actions_exec__WEBPACK_IMPORTED_MODULE_1___default().exec(`mkdir ${vcpkgDefaultBinaryCache}`)
+    const vcpkgDefaultBinaryCache = `${node_process__WEBPACK_IMPORTED_MODULE_3__.env.RUNNER_TEMP}/vcpkg_binary_cache`;
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.exportVariable('VCPKG_DEFAULT_BINARY_CACHE', vcpkgDefaultBinaryCache);
+    await _actions_exec__WEBPACK_IMPORTED_MODULE_1__.exec(`mkdir ${vcpkgDefaultBinaryCache}`)
 
     // Restore Cache
     const cachePaths = [
         vcpkgRoot,
         vcpkgDefaultBinaryCache,
     ];
-    const keyPrefix = `setup-vcpkg-${(node_process__WEBPACK_IMPORTED_MODULE_3___default().env.RUNNER_OS)}-`;
+    const keyPrefix = `setup-vcpkg-${node_process__WEBPACK_IMPORTED_MODULE_3__.env.RUNNER_OS}-`;
     const restoryKeys = [
         keyPrefix,
     ];
-    await _actions_cache__WEBPACK_IMPORTED_MODULE_2___default().restoreCache(cachePaths, undefined, restoryKeys);
-    _actions_core__WEBPACK_IMPORTED_MODULE_0___default().saveState('cachePaths', cachePaths);
-    _actions_core__WEBPACK_IMPORTED_MODULE_0___default().saveState('keyPrefix', keyPrefix);
+    await _actions_cache__WEBPACK_IMPORTED_MODULE_2__.restoreCache(cachePaths, undefined, restoryKeys);
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.saveState('cachePaths', cachePaths);
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.saveState('keyPrefix', keyPrefix);
 
-// } catch (error) {
-//     core.setFailed(error.message);
-// }
+} catch (error) {
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(error.message);
+}
 
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } }, 1);
