@@ -1,8 +1,8 @@
-import core from '@actions/core';
-import exec from '@actions/exec';
-import cache from '@actions/cache';
-import process from 'node:process';
-import glob from '@actions/glob';
+import * as core from '@actions/core';
+import * as exec from '@actions/exec';
+import * as cache from '@actions/cache';
+import * as process from 'node:process';
+import * as glob from '@actions/glob';
 
 try {
     const cachePaths = JSON.parse(core.getState('cachePaths'));

@@ -1,9 +1,9 @@
-import core from '@actions/core';
-import exec from '@actions/exec';
-import cache from '@actions/cache';
-import process from 'node:process';
+import * as core from '@actions/core';
+import * as exec from '@actions/exec';
+import * as cache from '@actions/cache';
+import * as process from 'node:process';
 
-// try {
+try {
     // VCPKG_ROOT
     const vcpkgRoot = process.env.VCPKG_INSTALLATION_ROOT;
     core.exportVariable('VCPKG_ROOT', vcpkgRoot);
@@ -30,6 +30,6 @@ import process from 'node:process';
     core.saveState('cachePaths', cachePaths);
     core.saveState('keyPrefix', keyPrefix);
 
-// } catch (error) {
-//     core.setFailed(error.message);
-// }
+} catch (error) {
+    core.setFailed(error.message);
+}
