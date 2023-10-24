@@ -82576,15 +82576,15 @@ __nccwpck_require__.r(__webpack_exports__);
 async function run() {
     try {
         const cachePaths = JSON.parse(_actions_core__WEBPACK_IMPORTED_MODULE_0__.getState('cachePaths'));
-        _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(JSON.stringify(cachePaths));
         const hash = await _actions_glob__WEBPACK_IMPORTED_MODULE_2__.hashFiles(cachePaths.join('\n'));
         const keyPrefix = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getState('keyPrefix');
         const primaryKey = `${keyPrefix}${hash}`;
-        if (primaryKey === _actions_core__WEBPACK_IMPORTED_MODULE_0__.getState('matchedKey')) {
+        const matchedKey = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getState('matchedKey');
+        if (primaryKey === matchedKey) {
             _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`Cache is unchanged with primary key: ${primaryKey}`);
         } else {
-            await _actions_cache__WEBPACK_IMPORTED_MODULE_1__.saveCache(cachePaths, key);
-            _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`Cache saved with the key: ${key}`);
+            await _actions_cache__WEBPACK_IMPORTED_MODULE_1__.saveCache(cachePaths, primaryKey);
+            _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`Cache saved with the key: ${primaryKey}`);
         }
     } catch (error) {
         _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(error.message);

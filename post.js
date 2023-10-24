@@ -5,15 +5,15 @@ import * as glob from '@actions/glob';
 async function run() {
     try {
         const cachePaths = JSON.parse(core.getState('cachePaths'));
-        core.info(JSON.stringify(cachePaths));
         const hash = await glob.hashFiles(cachePaths.join('\n'));
         const keyPrefix = core.getState('keyPrefix');
         const primaryKey = `${keyPrefix}${hash}`;
-        if (primaryKey === core.getState('matchedKey')) {
+        const matchedKey = core.getState('matchedKey');
+        if (primaryKey === matchedKey) {
             core.info(`Cache is unchanged with primary key: ${primaryKey}`);
         } else {
-            await cache.saveCache(cachePaths, key);
-            core.info(`Cache saved with the key: ${key}`);
+            await cache.saveCache(cachePaths, primaryKey);
+            core.info(`Cache saved with the key: ${primaryKey}`);
         }
     } catch (error) {
         core.setFailed(error.message);
