@@ -48,7 +48,7 @@ try {
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.saveState('keyPrefix', keyPrefix);
 
 } catch (error) {
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(error.cause);
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(error.stack);
 }
 
 __webpack_async_result__();
