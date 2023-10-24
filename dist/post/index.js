@@ -82581,7 +82581,7 @@ async function run() {
         const primaryKey = `${keyPrefix}${hash}`;
         const matchedKey = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getState('matchedKey');
         if (primaryKey === matchedKey) {
-            _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`Cache is unchanged with primary key: ${primaryKey}`);
+            _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`Cache is unchanged with the key: ${primaryKey}`);
         } else {
             await _actions_cache__WEBPACK_IMPORTED_MODULE_1__.saveCache(cachePaths, primaryKey);
             _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`Cache saved with the key: ${primaryKey}`);

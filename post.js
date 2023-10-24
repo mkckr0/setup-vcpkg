@@ -10,7 +10,7 @@ async function run() {
         const primaryKey = `${keyPrefix}${hash}`;
         const matchedKey = core.getState('matchedKey');
         if (primaryKey === matchedKey) {
-            core.info(`Cache is unchanged with primary key: ${primaryKey}`);
+            core.info(`Cache is unchanged with the key: ${primaryKey}`);
         } else {
             await cache.saveCache(cachePaths, primaryKey);
             core.info(`Cache saved with the key: ${primaryKey}`);
