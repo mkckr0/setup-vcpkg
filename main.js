@@ -35,13 +35,13 @@ try {
     core.saveState('cachePaths', cachePaths);
     const keyPrefix = `setup-vcpkg-${process.env.RUNNER_OS}-`;
     core.saveState('keyPrefix', keyPrefix);
-    const key = await cache.restoreCache(cachePaths, keyPrefix);
-    if (key === undefined) {
+    const primaryKey = await cache.restoreCache(cachePaths, keyPrefix);
+    if (primaryKey === undefined) {
         core.info(`Cache not found for input keys: ${keyPrefix}`);
     } else {
-        core.info('Cache restored successfully');
-        core.info(`Cache restored from key: ${key}`);
+        core.info(`Cache restored from key: ${primaryKey}`);
     }
+    core.saveState('primaryKey', primaryKey);
 } catch (error) {
     core.setFailed(error.stack);
 }

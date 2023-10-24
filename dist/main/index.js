@@ -54,13 +54,13 @@ try {
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.saveState('cachePaths', cachePaths);
     const keyPrefix = `setup-vcpkg-${node_process__WEBPACK_IMPORTED_MODULE_3__.env.RUNNER_OS}-`;
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.saveState('keyPrefix', keyPrefix);
-    const key = await _actions_cache__WEBPACK_IMPORTED_MODULE_2__.restoreCache(cachePaths, keyPrefix);
-    if (key === undefined) {
+    const primaryKey = await _actions_cache__WEBPACK_IMPORTED_MODULE_2__.restoreCache(cachePaths, keyPrefix);
+    if (primaryKey === undefined) {
         _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`Cache not found for input keys: ${keyPrefix}`);
     } else {
-        _actions_core__WEBPACK_IMPORTED_MODULE_0__.info('Cache restored successfully');
-        _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`Cache restored from key: ${key}`);
+        _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`Cache restored from key: ${primaryKey}`);
     }
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.saveState('primaryKey', primaryKey);
 } catch (error) {
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(error.stack);
 }
