@@ -3,7 +3,7 @@ import exec from '@actions/exec';
 import cache from '@actions/cache';
 import process from 'node:process';
 
-try {
+// try {
     // VCPKG_ROOT
     const vcpkgRoot = process.env.VCPKG_INSTALLATION_ROOT;
     core.exportVariable('VCPKG_ROOT', vcpkgRoot);
@@ -30,6 +30,6 @@ try {
     core.saveState('cachePaths', cachePaths);
     core.saveState('keyPrefix', keyPrefix);
 
-} catch (error) {
-    core.setFailed(error.message);
-}
+// } catch (error) {
+//     core.setFailed(error.message);
+// }
