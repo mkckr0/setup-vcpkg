@@ -15,6 +15,9 @@ __nccwpck_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_cache__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__nccwpck_require__.n(_actions_cache__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var node_process__WEBPACK_IMPORTED_MODULE_3__ = __nccwpck_require__(7742);
 /* harmony import */ var node_process__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__nccwpck_require__.n(node_process__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var node_util__WEBPACK_IMPORTED_MODULE_4__ = __nccwpck_require__(7261);
+/* harmony import */ var node_util__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__nccwpck_require__.n(node_util__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -52,11 +55,11 @@ try {
     const keyPrefix = `setup-vcpkg-${node_process__WEBPACK_IMPORTED_MODULE_3__.env.RUNNER_OS}-`;
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.saveState('keyPrefix', keyPrefix);
     const key = await _actions_cache__WEBPACK_IMPORTED_MODULE_2__.restoreCache(cachePaths, keyPrefix);
-    if (key !== 'undefined') {
+    if (key === undefined) {
+        _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`Cache not found for input keys: ${keyPrefix}`);
+    } else {
         _actions_core__WEBPACK_IMPORTED_MODULE_0__.info('Cache restored successfully');
         _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`Cache restored from key: ${key}`);
-    } else {
-        _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`Cache not found for input keys: ${keyPrefix}`);
     }
 } catch (error) {
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(error.stack);

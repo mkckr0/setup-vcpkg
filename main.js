@@ -2,6 +2,7 @@ import * as core from '@actions/core';
 import * as exec from '@actions/exec';
 import * as cache from '@actions/cache';
 import * as process from 'node:process';
+import { isUndefined } from 'node:util';
 
 try {
     // VCPKG_ROOT
@@ -35,11 +36,11 @@ try {
     const keyPrefix = `setup-vcpkg-${process.env.RUNNER_OS}-`;
     core.saveState('keyPrefix', keyPrefix);
     const key = await cache.restoreCache(cachePaths, keyPrefix);
-    if (key !== 'undefined') {
+    if (key === undefined) {
+        core.info(`Cache not found for input keys: ${keyPrefix}`);
+    } else {
         core.info('Cache restored successfully');
         core.info(`Cache restored from key: ${key}`);
-    } else {
-        core.info(`Cache not found for input keys: ${keyPrefix}`);
     }
 } catch (error) {
     core.setFailed(error.stack);
