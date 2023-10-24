@@ -31,11 +31,16 @@ try {
         vcpkgDownloads,
         vcpkgDefaultBinaryCache,
     ];
-    const keyPrefix = `setup-vcpkg-${process.env.RUNNER_OS}-`;
-    await cache.restoreCache(cachePaths, keyPrefix);
     core.saveState('cachePaths', cachePaths);
+    const keyPrefix = `setup-vcpkg-${process.env.RUNNER_OS}-`;
     core.saveState('keyPrefix', keyPrefix);
-
+    const key = await cache.restoreCache(cachePaths, keyPrefix);
+    if (key !== 'undefined') {
+        core.info('Cache restored successfully');
+        core.info(`Cache restored from key: ${key}`);
+    } else {
+        core.info(`Cache not found for input keys: ${keyPrefix}`);
+    }
 } catch (error) {
     core.setFailed(error.stack);
 }
