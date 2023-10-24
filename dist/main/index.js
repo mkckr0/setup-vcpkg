@@ -1,75 +1,6 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 711:
-/***/ ((module, __webpack_exports__, __nccwpck_require__) => {
-
-"use strict";
-__nccwpck_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
-__nccwpck_require__.r(__webpack_exports__);
-/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(7020);
-/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nccwpck_require__.n(_actions_core__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _actions_exec__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(7612);
-/* harmony import */ var _actions_exec__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nccwpck_require__.n(_actions_exec__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _actions_cache__WEBPACK_IMPORTED_MODULE_2__ = __nccwpck_require__(7036);
-/* harmony import */ var _actions_cache__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__nccwpck_require__.n(_actions_cache__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var node_process__WEBPACK_IMPORTED_MODULE_3__ = __nccwpck_require__(7742);
-/* harmony import */ var node_process__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__nccwpck_require__.n(node_process__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var node_util__WEBPACK_IMPORTED_MODULE_4__ = __nccwpck_require__(7261);
-/* harmony import */ var node_util__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__nccwpck_require__.n(node_util__WEBPACK_IMPORTED_MODULE_4__);
-
-
-
-
-
-
-try {
-    // VCPKG_ROOT
-    const vcpkgRoot = node_process__WEBPACK_IMPORTED_MODULE_3__.env.VCPKG_INSTALLATION_ROOT;
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.exportVariable('VCPKG_ROOT', vcpkgRoot);
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`VCPKG_ROOT=${vcpkgRoot}`);
-
-    // VCPKG_DOWNLOADS
-    const vcpkgDownloads = _actions_core__WEBPACK_IMPORTED_MODULE_0__.toPlatformPath(`${node_process__WEBPACK_IMPORTED_MODULE_3__.env.GITHUB_WORKSPACE}/downloads`);
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.exportVariable('VCPKG_DOWNLOADS', vcpkgDownloads);
-    await _actions_exec__WEBPACK_IMPORTED_MODULE_1__.exec(`mkdir ${vcpkgDownloads}`);
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`VCPKG_DOWNLOADS=${vcpkgDownloads}`);
-
-    // VCPKG_DEFAULT_TRIPLET
-    const vcpkgDefaultTriplet = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('VCPKG_DEFAULT_TRIPLET');
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.exportVariable('VCPKG_DEFAULT_TRIPLET', vcpkgDefaultTriplet);
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`VCPKG_DEFAULT_TRIPLET=${vcpkgDefaultTriplet}`);
-
-    // VCPKG_DEFAULT_BINARY_CACHE
-    const vcpkgDefaultBinaryCache = _actions_core__WEBPACK_IMPORTED_MODULE_0__.toPlatformPath(`${node_process__WEBPACK_IMPORTED_MODULE_3__.env.GITHUB_WORKSPACE}/vcpkg_binary_cache`);
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.exportVariable('VCPKG_DEFAULT_BINARY_CACHE', vcpkgDefaultBinaryCache);
-    await _actions_exec__WEBPACK_IMPORTED_MODULE_1__.exec(`mkdir ${vcpkgDefaultBinaryCache}`);
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`VCPKG_DEFAULT_BINARY_CACHE=${vcpkgDefaultBinaryCache}`);
-
-    // Restore Cache
-    const cachePaths = [
-        vcpkgDownloads,
-        vcpkgDefaultBinaryCache,
-    ];
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.saveState('cachePaths', cachePaths);
-    const keyPrefix = `setup-vcpkg-${node_process__WEBPACK_IMPORTED_MODULE_3__.env.RUNNER_OS}-`;
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.saveState('keyPrefix', keyPrefix);
-    const primaryKey = await _actions_cache__WEBPACK_IMPORTED_MODULE_2__.restoreCache(cachePaths, keyPrefix);
-    if (primaryKey === undefined) {
-        _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`Cache not found for input keys: ${keyPrefix}`);
-    } else {
-        _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`Cache restored from key: ${primaryKey}`);
-    }
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.saveState('primaryKey', primaryKey);
-} catch (error) {
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(error.stack);
-}
-
-__webpack_async_result__();
-} catch(e) { __webpack_async_result__(e); } }, 1);
-
-/***/ }),
-
 /***/ 7036:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
@@ -81205,14 +81136,6 @@ module.exports = require("node:events");
 
 /***/ }),
 
-/***/ 7742:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("node:process");
-
-/***/ }),
-
 /***/ 4492:
 /***/ ((module) => {
 
@@ -81398,104 +81321,6 @@ module.exports = JSON.parse('[[[0,44],"disallowed_STD3_valid"],[[45,46],"valid"]
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/async module */
-/******/ 	(() => {
-/******/ 		var webpackQueues = typeof Symbol === "function" ? Symbol("webpack queues") : "__webpack_queues__";
-/******/ 		var webpackExports = typeof Symbol === "function" ? Symbol("webpack exports") : "__webpack_exports__";
-/******/ 		var webpackError = typeof Symbol === "function" ? Symbol("webpack error") : "__webpack_error__";
-/******/ 		var resolveQueue = (queue) => {
-/******/ 			if(queue && !queue.d) {
-/******/ 				queue.d = 1;
-/******/ 				queue.forEach((fn) => (fn.r--));
-/******/ 				queue.forEach((fn) => (fn.r-- ? fn.r++ : fn()));
-/******/ 			}
-/******/ 		}
-/******/ 		var wrapDeps = (deps) => (deps.map((dep) => {
-/******/ 			if(dep !== null && typeof dep === "object") {
-/******/ 				if(dep[webpackQueues]) return dep;
-/******/ 				if(dep.then) {
-/******/ 					var queue = [];
-/******/ 					queue.d = 0;
-/******/ 					dep.then((r) => {
-/******/ 						obj[webpackExports] = r;
-/******/ 						resolveQueue(queue);
-/******/ 					}, (e) => {
-/******/ 						obj[webpackError] = e;
-/******/ 						resolveQueue(queue);
-/******/ 					});
-/******/ 					var obj = {};
-/******/ 					obj[webpackQueues] = (fn) => (fn(queue));
-/******/ 					return obj;
-/******/ 				}
-/******/ 			}
-/******/ 			var ret = {};
-/******/ 			ret[webpackQueues] = x => {};
-/******/ 			ret[webpackExports] = dep;
-/******/ 			return ret;
-/******/ 		}));
-/******/ 		__nccwpck_require__.a = (module, body, hasAwait) => {
-/******/ 			var queue;
-/******/ 			hasAwait && ((queue = []).d = 1);
-/******/ 			var depQueues = new Set();
-/******/ 			var exports = module.exports;
-/******/ 			var currentDeps;
-/******/ 			var outerResolve;
-/******/ 			var reject;
-/******/ 			var promise = new Promise((resolve, rej) => {
-/******/ 				reject = rej;
-/******/ 				outerResolve = resolve;
-/******/ 			});
-/******/ 			promise[webpackExports] = exports;
-/******/ 			promise[webpackQueues] = (fn) => (queue && fn(queue), depQueues.forEach(fn), promise["catch"](x => {}));
-/******/ 			module.exports = promise;
-/******/ 			body((deps) => {
-/******/ 				currentDeps = wrapDeps(deps);
-/******/ 				var fn;
-/******/ 				var getResult = () => (currentDeps.map((d) => {
-/******/ 					if(d[webpackError]) throw d[webpackError];
-/******/ 					return d[webpackExports];
-/******/ 				}))
-/******/ 				var promise = new Promise((resolve) => {
-/******/ 					fn = () => (resolve(getResult));
-/******/ 					fn.r = 0;
-/******/ 					var fnQueue = (q) => (q !== queue && !depQueues.has(q) && (depQueues.add(q), q && !q.d && (fn.r++, q.push(fn))));
-/******/ 					currentDeps.map((dep) => (dep[webpackQueues](fnQueue)));
-/******/ 				});
-/******/ 				return fn.r ? promise : getResult();
-/******/ 			}, (err) => ((err ? reject(promise[webpackError] = err) : outerResolve(exports)), resolveQueue(queue)));
-/******/ 			queue && (queue.d = 0);
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__nccwpck_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__nccwpck_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__nccwpck_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__nccwpck_require__.o(definition, key) && !__nccwpck_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__nccwpck_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -81512,12 +81337,74 @@ module.exports = JSON.parse('[[[0,44],"disallowed_STD3_valid"],[[45,46],"valid"]
 /******/ 	if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = __dirname + "/";
 /******/ 	
 /************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module used 'module' so it can't be inlined
-/******/ 	var __webpack_exports__ = __nccwpck_require__(711);
-/******/ 	module.exports = __webpack_exports__;
-/******/ 	
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+(() => {
+"use strict";
+// ESM COMPAT FLAG
+__nccwpck_require__.r(__webpack_exports__);
+
+// EXTERNAL MODULE: ./node_modules/@actions/core/lib/core.js
+var core = __nccwpck_require__(7020);
+// EXTERNAL MODULE: ./node_modules/@actions/exec/lib/exec.js
+var exec = __nccwpck_require__(7612);
+// EXTERNAL MODULE: ./node_modules/@actions/cache/lib/cache.js
+var cache = __nccwpck_require__(7036);
+;// CONCATENATED MODULE: external "node:process"
+const external_node_process_namespaceObject = require("node:process");
+;// CONCATENATED MODULE: ./main.js
+
+
+
+
+
+async function run() {
+    try {
+        // VCPKG_ROOT
+        const vcpkgRoot = external_node_process_namespaceObject.env.VCPKG_INSTALLATION_ROOT;
+        core.exportVariable('VCPKG_ROOT', vcpkgRoot);
+        core.info(`VCPKG_ROOT=${vcpkgRoot}`);
+
+        // VCPKG_DOWNLOADS
+        const vcpkgDownloads = core.toPlatformPath(`${external_node_process_namespaceObject.env.GITHUB_WORKSPACE}/downloads`);
+        core.exportVariable('VCPKG_DOWNLOADS', vcpkgDownloads);
+        await exec.exec(`mkdir ${vcpkgDownloads}`);
+        core.info(`VCPKG_DOWNLOADS=${vcpkgDownloads}`);
+
+        // VCPKG_DEFAULT_TRIPLET
+        const vcpkgDefaultTriplet = core.getInput('VCPKG_DEFAULT_TRIPLET');
+        core.exportVariable('VCPKG_DEFAULT_TRIPLET', vcpkgDefaultTriplet);
+        core.info(`VCPKG_DEFAULT_TRIPLET=${vcpkgDefaultTriplet}`);
+
+        // VCPKG_DEFAULT_BINARY_CACHE
+        const vcpkgDefaultBinaryCache = core.toPlatformPath(`${external_node_process_namespaceObject.env.GITHUB_WORKSPACE}/vcpkg_binary_cache`);
+        core.exportVariable('VCPKG_DEFAULT_BINARY_CACHE', vcpkgDefaultBinaryCache);
+        await exec.exec(`mkdir ${vcpkgDefaultBinaryCache}`);
+        core.info(`VCPKG_DEFAULT_BINARY_CACHE=${vcpkgDefaultBinaryCache}`);
+
+        // Restore Cache
+        const cachePaths = [
+            vcpkgDownloads,
+            vcpkgDefaultBinaryCache,
+        ];
+        core.saveState('cachePaths', cachePaths);
+        const keyPrefix = `setup-vcpkg-${external_node_process_namespaceObject.env.RUNNER_OS}-`;
+        core.saveState('keyPrefix', keyPrefix);
+        const primaryKey = await cache.restoreCache(cachePaths, keyPrefix);
+        if (primaryKey === undefined) {
+            core.info(`Cache not found for input keys: ${keyPrefix}`);
+        } else {
+            core.info(`Cache restored from key: ${primaryKey}`);
+        }
+        core.saveState('primaryKey', primaryKey);
+    } catch (error) {
+        core.setFailed(error.stack);
+    }
+}
+
+run();
+})();
+
+module.exports = __webpack_exports__;
 /******/ })()
 ;
