@@ -1,0 +1,11 @@
+name: 'setup-vcpkg'
+description: 'Setup vcpkg including asset caching, binary caching ...'
+inputs:
+  VCPKG_DEFAULT_TRIPLET:
+    description: 'VCPKG_DEFAULT_TRIPLET'
+    required: false
+    default: ''
+runs:
+  using: 'node20'
+  main: 'dist/main/index.js'
+  post: 'dist/post/index.js'
