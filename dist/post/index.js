@@ -82226,7 +82226,7 @@ __nccwpck_require__.r(__webpack_exports__);
 
 try {
     const cachePaths = JSON.parse(_actions_core__WEBPACK_IMPORTED_MODULE_0__.getState('cachePaths'));
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.debug(JSON.stringify(cachePaths));
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(JSON.stringify(cachePaths));
     const hash = await _actions_glob__WEBPACK_IMPORTED_MODULE_2__.hashFiles(cachePaths.join('\n'));
     const keyPrefix = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getState('keyPrefix');
     const key = `${keyPrefix}${hash}`;
