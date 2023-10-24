@@ -31,5 +31,5 @@ try {
     core.saveState('keyPrefix', keyPrefix);
 
 } catch (error) {
-    core.setFailed(error);
+    core.setFailed(error.cause);
 }
