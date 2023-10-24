@@ -82234,8 +82234,9 @@ try {
     const cachePaths = JSON.parse(_actions_core__WEBPACK_IMPORTED_MODULE_0__.getState('cachePaths'));
     const hash = await _actions_glob__WEBPACK_IMPORTED_MODULE_4__.hashFiles(cachePaths.join('\n'));
     const keyPrefix = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getState('keyPrefix');
-    await _actions_cache__WEBPACK_IMPORTED_MODULE_2__.saveCache(cachePaths, `${keyPrefix}${hash}`);
-
+    const key = `${keyPrefix}${hash}`;
+    await _actions_cache__WEBPACK_IMPORTED_MODULE_2__.saveCache(cachePaths, key);
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`Cache saved with the key: ${key}`);
 } catch (error) {
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(error.message);
 }

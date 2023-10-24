@@ -8,8 +8,9 @@ try {
     const cachePaths = JSON.parse(core.getState('cachePaths'));
     const hash = await glob.hashFiles(cachePaths.join('\n'));
     const keyPrefix = core.getState('keyPrefix');
-    await cache.saveCache(cachePaths, `${keyPrefix}${hash}`);
-
+    const key = `${keyPrefix}${hash}`;
+    await cache.saveCache(cachePaths, key);
+    core.info(`Cache saved with the key: ${key}`);
 } catch (error) {
     core.setFailed(error.message);
 }
