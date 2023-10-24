@@ -24,19 +24,28 @@ try {
     // VCPKG_ROOT
     const vcpkgRoot = node_process__WEBPACK_IMPORTED_MODULE_3__.env.VCPKG_INSTALLATION_ROOT;
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.exportVariable('VCPKG_ROOT', vcpkgRoot);
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`VCPKG_ROOT=${vcpkgRoot}`);
+
+    // VCPKG_DOWNLOADS
+    const vcpkgDownloads = _actions_core__WEBPACK_IMPORTED_MODULE_0__.toPlatformPath(`${node_process__WEBPACK_IMPORTED_MODULE_3__.env.GITHUB_WORKSPACE}/downloads`);
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.exportVariable('VCPKG_DOWNLOADS', vcpkgDownloads);
+    await _actions_exec__WEBPACK_IMPORTED_MODULE_1__.exec(`mkdir ${vcpkgDownloads}`);
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`VCPKG_DOWNLOADS=${vcpkgDownloads}`);
 
     // VCPKG_DEFAULT_TRIPLET
     const vcpkgDefaultTriplet = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('VCPKG_DEFAULT_TRIPLET');
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.exportVariable('VCPKG_DEFAULT_TRIPLET', vcpkgDefaultTriplet);
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`VCPKG_DEFAULT_TRIPLET=${vcpkgDefaultTriplet}`);
 
     // VCPKG_DEFAULT_BINARY_CACHE
-    const vcpkgDefaultBinaryCache = `${node_process__WEBPACK_IMPORTED_MODULE_3__.env.RUNNER_TEMP}/vcpkg_binary_cache`;
+    const vcpkgDefaultBinaryCache = _actions_core__WEBPACK_IMPORTED_MODULE_0__.toPlatformPath(`${node_process__WEBPACK_IMPORTED_MODULE_3__.env.GITHUB_WORKSPACE}/vcpkg_binary_cache`);
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.exportVariable('VCPKG_DEFAULT_BINARY_CACHE', vcpkgDefaultBinaryCache);
-    await _actions_exec__WEBPACK_IMPORTED_MODULE_1__.exec(`mkdir ${vcpkgDefaultBinaryCache}`)
+    await _actions_exec__WEBPACK_IMPORTED_MODULE_1__.exec(`mkdir ${vcpkgDefaultBinaryCache}`);
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`VCPKG_DEFAULT_BINARY_CACHE=${vcpkgDefaultBinaryCache}`);
 
     // Restore Cache
     const cachePaths = [
-        vcpkgRoot,
+        vcpkgDownloads,
         vcpkgDefaultBinaryCache,
     ];
     const keyPrefix = `setup-vcpkg-${node_process__WEBPACK_IMPORTED_MODULE_3__.env.RUNNER_OS}-`;
