@@ -9,8 +9,7 @@ async function run() {
         const hash = await glob.hashFiles(cachePaths.join('\n'));
         const keyPrefix = core.getState('keyPrefix');
         const key = `${keyPrefix}${hash}`;
-        const cacheId = await cache.saveCache(cachePaths, key);
-        core.info(`Cache id: ${cacheId}`);
+        await cache.saveCache(cachePaths, key);
         core.info(`Cache saved with the key: ${key}`);
     } catch (error) {
         core.setFailed(error.message);

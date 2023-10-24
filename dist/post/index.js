@@ -82580,8 +82580,7 @@ async function run() {
         const hash = await _actions_glob__WEBPACK_IMPORTED_MODULE_2__.hashFiles(cachePaths.join('\n'));
         const keyPrefix = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getState('keyPrefix');
         const key = `${keyPrefix}${hash}`;
-        const cacheId = await _actions_cache__WEBPACK_IMPORTED_MODULE_1__.saveCache(cachePaths, key);
-        _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`Cache id: ${cacheId}`);
+        await _actions_cache__WEBPACK_IMPORTED_MODULE_1__.saveCache(cachePaths, key);
         _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`Cache saved with the key: ${key}`);
     } catch (error) {
         _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(error.message);
