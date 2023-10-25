@@ -6,7 +6,10 @@ import * as process from 'node:process';
 async function run() {
     try {
         // VCPKG_ROOT
-        const vcpkgRoot = process.env.VCPKG_INSTALLATION_ROOT;
+        let vcpkgRoot = core.getInput('VCPKG_ROOT');
+        if (vcpkgRoot === '') {
+            vcpkgRoot = process.env.VCPKG_INSTALLATION_ROOT;
+        }
         core.exportVariable('VCPKG_ROOT', vcpkgRoot);
         core.info(`VCPKG_ROOT=${vcpkgRoot}`);
 

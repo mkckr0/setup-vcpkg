@@ -81361,7 +81361,10 @@ const external_node_process_namespaceObject = require("node:process");
 async function run() {
     try {
         // VCPKG_ROOT
-        const vcpkgRoot = external_node_process_namespaceObject.env.VCPKG_INSTALLATION_ROOT;
+        let vcpkgRoot = core.getInput('VCPKG_ROOT');
+        if (vcpkgRoot === '') {
+            vcpkgRoot = external_node_process_namespaceObject.env.VCPKG_INSTALLATION_ROOT;
+        }
         core.exportVariable('VCPKG_ROOT', vcpkgRoot);
         core.info(`VCPKG_ROOT=${vcpkgRoot}`);
 
