@@ -43,9 +43,9 @@ The Visual Studio of Github Hosted Runner has a preinstalled vcpkg at `C:\Progra
 The simple solution is to reset `VCPKG_ROOT` manually.
 ```yml
 - name: CMake Configure & Build
-    run: |
-      ${{ runner.os == 'Windows' && '&"$(vswhere -property installationPath)\Common7\Tools\Launch-VsDevShell.ps1" -Arch amd64 -HostArch amd64 -SkipAutomaticLocation' || ''}}
-      ${{ runner.os == 'Windows' && '$env:VCPKG_ROOT=$env:VCPKG_INSTALLATION_ROOT' || '' }}
-      cmake --preset windows-Release
-      cmake --build --preset windows-Release
+  run: |
+    ${{ runner.os == 'Windows' && '&"$(vswhere -property installationPath)\Common7\Tools\Launch-VsDevShell.ps1" -Arch amd64 -HostArch amd64 -SkipAutomaticLocation' || ''}}
+    ${{ runner.os == 'Windows' && '$env:VCPKG_ROOT=$env:VCPKG_INSTALLATION_ROOT' || '' }}
+    cmake --preset windows-Release
+    cmake --build --preset windows-Release
 ```
