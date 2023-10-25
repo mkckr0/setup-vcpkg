@@ -2,6 +2,7 @@ name: 'setup-vcpkg'
 description: 'Setup vcpkg with VCPKG_ROOT, VCPKG_DEFAULT_TRIPLET, asset caching and binary caching.'
 branding:
   icon: 'package'
+  color: 'yellow'
 inputs:
   VCPKG_ROOT:
     description: 'VCPKG_ROOT'
