@@ -81366,7 +81366,7 @@ async function run() {
         core.info(`VCPKG_ROOT=${vcpkgRoot}`);
 
         // VCPKG_DOWNLOADS
-        const vcpkgDownloads = core.toPlatformPath(`${external_node_process_namespaceObject.env.GITHUB_WORKSPACE}/downloads`);
+        const vcpkgDownloads = core.toPlatformPath(`${external_node_process_namespaceObject.env.GITHUB_WORKSPACE}/vcpkg_downloads`);
         core.exportVariable('VCPKG_DOWNLOADS', vcpkgDownloads);
         await exec.exec(`mkdir ${vcpkgDownloads}`);
         core.info(`VCPKG_DOWNLOADS=${vcpkgDownloads}`);

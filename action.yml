@@ -1,5 +1,8 @@
 name: 'setup-vcpkg'
-description: 'Setup vcpkg including asset caching, binary caching ...'
+description: 'Setup vcpkg with asset caching, binary caching ...'
+branding:
+  icon: 'package'
+  color: 'red'
 inputs:
   VCPKG_DEFAULT_TRIPLET:
     description: 'VCPKG_DEFAULT_TRIPLET'
