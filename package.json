@@ -7,7 +7,7 @@
     "build": "ncc build src/main.js -o dist/main && ncc build src/post.js -o dist/post"
   },
   "keywords": [],
-  "author": "",
+  "author": "mkckr0",
   "license": "MIT",
   "dependencies": {
     "@actions/cache": "^3.2.2",
